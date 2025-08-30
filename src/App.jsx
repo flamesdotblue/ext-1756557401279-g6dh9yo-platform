@@ -1,28 +1,46 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Testimonials from './components/Testimonials';
+import Pricing from './components/Pricing';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-white antialiased">
+      <header className="sticky top-0 z-40 backdrop-blur-md bg-neutral-950/60 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-fuchsia-500 via-purple-500 to-blue-500" />
+            <span className="font-semibold tracking-tight">AuraSites AI</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+            <a href="#features" className="hover:text-white transition">Features</a>
+            <a href="#testimonials" className="hover:text-white transition">Testimonials</a>
+            <a href="#pricing" className="hover:text-white transition">Pricing</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <a href="#pricing" className="hidden md:inline-block px-4 py-2 rounded-md border border-white/20 hover:border-white/40 text-sm">Pricing</a>
+            <a href="#start" className="inline-block px-4 py-2 rounded-md bg-white text-neutral-900 font-medium hover:bg-white/90 text-sm">Start free</a>
+          </div>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <Features />
+        <Testimonials />
+        <Pricing />
+      </main>
+
+      <footer className="border-t border-white/10 mt-24">
+        <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-white/60 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded-md bg-gradient-to-tr from-fuchsia-500 via-purple-500 to-blue-500" />
+            <span>AuraSites AI</span>
+          </div>
+          <p>© {new Date().getFullYear()} AuraSites, Inc. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
